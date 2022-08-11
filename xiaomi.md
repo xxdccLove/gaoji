@@ -1,136 +1,6 @@
-# 解锁BL
 
-1、手机进入“设置 -> 开发者选项 -> 设备解锁状态”中绑定账号和设备
 
-2、电脑打开[申请解锁小米手机](https://www.miui.com/unlock/download.html)（下载解锁工具）
-
-3、进入Bootloader模式（重启，按住音量下键）
-
-4、通过USB连接手机，打开（解锁工具）点击 “解锁”按钮
-
-5、解锁成功（账号绑定手机必须满七天）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111806733.png)
-
-# Root
-
-## Root
-
-1、系统是纯净官方系统（如果不是，建议刷一次完整包）
-
-2、手机下载安装：[MT管理器](https://www.coolapk.com/apk/bin.mt.plus)
-
-3、手机下载安装：[Magisk](https://magiskcn.com/magisk-download)
-
-4、下载系统完整包：[magiskcn.com/get-miui](https://magiskcn.com/get-miui)（其他品牌请自行到官网下载）
-
-5、打开**MT管理器**，找到我们下载好的系统包，点开zip包，长按 **boot.img** 提取出来到 **Dowmload** 目录
-（小米手机系统包默认下载的位置：**Download/dowmloaded_rom**）
-
-（如果系统包里面没有**boot.img**，只有**payload.bin**，请参考这个教程提取：[magiskcn.com/payload-boot](https://magiskcn.com/payload-boot)）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111759715.png)
-
-6、打开Magisk【安装 – 选择并修补一个文件 – 弹窗文件管理窗口（找到刚刚提取的**boot.img**）- 开始】
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111800217.png)
-
-7、修补结束，会生成一个名字为（**magisk_patched-版本号_随机字符.img**）的文件（每次生成的随机字符都不一样，使用的时候请输入生成的名字）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111800101.png)
-
-
-
-8、手机连接到电脑，把**boot.img**和（**magisk_patched-2X000_xxxxx.img**）两个文件复制到电脑
-
-9、下载FastBoot：https://mrzzoxo.lanzouw.com/iMbPYz63p6f
-（解压出来，把**magisk_patched-2X000_xxxxx.img**复制到fastboot目录里）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111800232.png)
-
-
-
-10、打开bat文件（**打开CMD命令行.bat**）把手机重启到BootLoader模式（**重启+音量-键**）然后输入下面的命令
-
-```
-fastboot flash boot 面具文件
-```
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111801200.png)
-
-
-
-11、出现下面这三行代码，就是成功刷入了。
-
-```
-Sending 'boot' (131072 KB) OKAY [ 3.049s]
-Writing 'boot'             OKAY [ 0.587s]
-Finished. Total time: 4.582s
-```
-
-12、重启手机（开机有震动基本没问题了）耐心等手机开机。（显示Magisk的版本，就是刷好了的）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111801370.png)
-
-(A/B）(Ramdisk）(SAR）
-这是手机分区，老款手机会显示“否”。新出的手机一般都显示“是”。不影响使用。
-
-## 还原 Boot
-
-如果刷模块不兼容或者其他骚操作导致卡米的话，可以把我们前面提取的boot.img通过fastboot刷回去，恢复原系统，一般都能正常开机！
-boot.img保留一份在电脑，避免出问题了可以自救下！还原boot指令
-
-```
-fastboot flash boot boot.img
-```
-
-后期系统更新，直接下载全量完整包升级，然后重复上面的步骤就可以继续愉快的使用Magisk了！
-
-## [payload提取boot文件（payload.bin解包boot.img）](https://magiskcn.com/payload-boot)
-
-1.在电脑下载系统包（全量包）小米参考：https://magiskcn.com/get-miui（其他品牌请自行到官网下载）
-
-2.下载Payload解包工具：https://mrzzoxo.lanzouw.com/iR65zpaueyd
-
-3.解压系统包（只需要payload.bin文件）
-
-4.复制解压出来的【payload.bin】文件到Payload解包工具的payload_input文件夹
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111802764.png)
-
-
-
-5.打开【payload_dumper.exe】执行解包（文件越大，解包时间越长）
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111803947.png)
-
-
-
-6.打开payload_output文件夹就可以看到我们解好的包了
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111803798.png)
-
-
-
-## [AB分区保留面具升级系统（不丢面具升级系统）](https://magiskcn.com/ab-magisk-update)
-
-> 如果是跨安卓版本升级的，一定要先升级，再重新刷面具！
-
-0、先确认是不是AB分区
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111753078.png)
-
-1、下载最新完整包 – 进度跑完 – 不重启
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111752640.png)
-
-2、打开Magisk – 安装 – 安装到未使用的槽位（OTA后） – 重启
-
-![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111752148.png)
-
----
-
-# 使用内测系统
+# 一、使用内测系统
 
 ## 申请内测
 
@@ -159,6 +29,7 @@ fastboot flash boot boot.img
   ![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111735689.png)
 
 + 下载对应卡刷包到手机用户根目录
+
 + 连点 MIUI logo，点更多，然后点击手动选择安装包，开始更新
 
 ## 线刷
@@ -168,6 +39,98 @@ fastboot flash boot boot.img
 + 下载线刷包和官方刷机工具，手机进入 Fastboot 模式
 + 解压缩线刷包两次后，进行刷机
 
-# 必备模块
 
-+ 
+
+# 二、系统优化
+
+## 1. 去广告
+
+① 按 [查看链接](https://www.coolapk.com/feed/35142654?shareKey=OGU0NWQwYzE4N2NjNjI5Y2NjNzc~&shareUid=4161634&shareFrom=com.coolapk.market_12.3) 中方法关闭系统广告
+② 到 /storage/emulated/0/Android/data/com.miui.systemAdSolution/files/ 中删除 miad 文件夹并新建 maid 文件
+③安装[【爱玩机工具箱-解锁玩机新姿势】](http://www.coolapk.com/apk/com.byyoung.setting) ，在 导航-MIUI专属-高级设置-特殊服务 中移除系统广告
+④使用 【李跳跳】跳过软件开屏广告
+
+## 2. 输入法
+
+### 1、 获取皮肤
+
+进入森林集公众号或商店链接
+[查看链接](https://shop42868965.m.youzan.com/v2/showcase/homepage?kdt_id=42676797)
+购买皮肤，通过链接进行下载
+(森林集大部分皮肤都可以通过商店内的折扣卷免费获得)
+
+![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111910506.png)
+
+
+
+### 2、 皮肤安装
+
+用 [MT管理器] 将下载好的皮肤文件移动到输入法皮肤文件夹中
+三大输入法小米定制版主题文件夹位置
+百度输入法：
+/storage/emulated/0/Android/data/com.baidu.input_mi/files/skins/
+
+![浅浅 智能深色](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111910344.png)
+
+
+
+搜狗输入法：
+/storage/emulated/0/Android/data/com.sohu.inputmethod.sogou.xiaomi/files/sogou/sga/wallpaper/
+(没有 wallpaper 文件夹的需要自己创建)
+
+![字由字在 天青](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111910808.png)
+
+
+
+讯飞输入法：
+/storage/emulated/0/Android/data/com.iflytek.inputmethod.miui/files/iFlyIME/skin/theme/
+
+### 3、注意
+
+① 低版本的定制输入法无法使用森林集的智能深色皮肤，需要更新。建议选择 百度输入法
+百度输入法小米定制版 v10.6.66.45：
+[查看链接](https://wwd.lanzouq.com/i4R9y056fqib)
+搜狗输入法小米定制版 v10.32.31:
+[查看链接](https://wwd.lanzouq.com/iczSC056fvra)
+② 定制输入法的智能助理啥的都可以关闭，都在设置里
+
+## 3. 堆叠桌面: 
+
+[@TAT趙](https://www.coolapk.com/u/TAT趙)
+
+## 4. 弹幕通知：
+
+安装弹幕通知软件，给在其他应用上层显示和读取通知的权限
+
+## 5. 负一屏刷新问题：
+
+核心破解安装旧版本智能助理，进入下方设置后切任务管理页面锁定任务，更新智能助理
+
+## 6. 屏蔽系统更新更新：
+
+ [查看链接](https://www.coolapk.com/feed/36416444?shareKey=ZDZlMmVjYTZmN2IyNjI5ZDYyMmY~&shareUid=4161634&shareFrom=com.coolapk.market_12.3)
+①download文件夹下删除downloaded_rom文件夹，
+②创建一个downloaded_rom文件，不要扩展名。
+
+## 7. 隐藏状态栏图标：
+
+ [【WooBox For MIUI】](https://www.coolapk.com/apk/com.lt2333.simplicitytools)
+
+## 8. 内测系统通过google play安全认证:
+
+下载 [【My Device IDs - Get device AAID, GSF ID, OAID】](https://www.coolapk.com/apk/com.github.kolacbb.ids) ，查询自己的 GSFID ，复制，点击注册到[查看链接](https://www.google.com/android/uncertified/) 完成认证。删除谷歌商店数据重新登录。就可以正常下载应用了
+
+# 二、关于Twrp：
+
+这里推荐 [@mi_block](https://www.coolapk.com/u/mi_block) 大佬的。个人更推荐前者
+
+# 三、模块
+
+救砖：[查看链接](https://wwd.lanzouq.com/iRFOt05ynebi)
+
+A亮屏满血模块： 鹤征
+
+第三方应用下载目录重定向：[查看链接](https://wwd.lanzouq.com/i6VUe05ynz9c)
+
+小白条沉浸：[查看链接](https://wwd.lanzouq.com/i5xN505yo1mh)
+
