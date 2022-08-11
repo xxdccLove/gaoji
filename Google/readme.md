@@ -1,3 +1,7 @@
+[v2rayNG](https://github.com/2dust/v2rayNG)
+
+[Clash for Android](https://github.com/Kr328/ClashForAndroid)
+
 # 内测系统通过google play安全认证:
 
 下载 [【My Device IDs - Get device AAID, GSF ID, OAID】](https://www.coolapk.com/apk/com.github.kolacbb.ids) ，查询自己的 GSFID ，复制，点击注册到[查看链接](https://www.google.com/android/uncertified/) 完成认证。删除谷歌商店数据重新登录。就可以正常下载应用了
