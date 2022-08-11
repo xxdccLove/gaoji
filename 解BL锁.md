@@ -1,9 +1,9 @@
 # 首先 安装驱动
 
-不管什么机型，首先要安装驱动，一般情况下安装下面两个驱动就可以满足全机型的刷机需求，如果出现报错的情况，请检查并安装下面各个机型具体驱动
+解锁BL前请注意数据备份
 
-https://wwe.lanzouq.com/b01j3lk5a
-密码:xxdcc
+不管什么机型，首先要安装驱动，一般情况下安装下面两个驱动就可以满足全机型的刷机需求，如果出现报错的情况，请检查并安装下面各个机型具体驱动
+https://github.com/xxdccLove/gaoji/tree/main/fastboot
 
 
 
@@ -24,6 +24,7 @@ https://wwe.lanzouq.com/b01j3lk5a
 5、将手机关机后，按住**`音量-键`**和**`电源键`**进入Fastboot模式（兔子模式）
 
 6、用数据线将手机与电脑连接起来，直到出现“已连接手机”的字样。点击**`解锁`**按钮，等待解锁完毕，显示解锁成功后，打开手机进入设置-更多设置-开发者选项-设备解锁状态，显示“已解锁”说明解锁成功。
+![](https://cdn.jsdelivr.net/gh/xxdccLove/xxdccPic/img/202208111806733.png)
 
 ---
 
@@ -100,9 +101,6 @@ fastboot oem unlock
 > 驱动：打开下载的QPST压缩包内的Drive文件夹，安装Qualcomm USB Driver V1.0.exe
 
 1、下载高通工具QPST：https://qfiltool.com/category/download，
-
-https://wwe.lanzouq.com/iRxDkze3l2f
-
 并进行安装，安装时一路next即可。安装后QPST可能不会生成快捷方式，请到开始菜单里寻找
 
 2、进入9008模式
@@ -248,8 +246,7 @@ fastboot erase userdata
 
 # 四、三星（Samsung）
 
-> 三星驱动：https://wwe.lanzouq.com/iv6fNze3ixi
->
+
 > 不适用美版机器
 
 1、进入设置-关于手机-软件信息，连续点击6次“编译编号”进入开发者模式
@@ -280,7 +277,6 @@ fastboot erase userdata
 
 > 一加全能工具箱地址：https://optool.daxiaamu.com/wiki_pctool
 >
-> 备用地址：https://cloud.xxdcc.life/s/6rIp
 >
 > 驱动：输入1安装驱动
 
